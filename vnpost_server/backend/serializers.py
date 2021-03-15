@@ -9,25 +9,31 @@ from rest_framework import permissions
 import os 
 from .models import *
 
-class User_serializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']
 
 
-class Motorbike_regis_cert_serializer(serializers.ModelSerializer):
+class MotorbikeRegisCertSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Motorbike_regis_cert
-        fields = ['cert_id', 'province_public_security', 'district_public_security', 'number', 'owner', 'address', 'brand', 'model_code', 'engine', 'chassis', 'color', 'activation_scope', 'plate', 'date_of_expiry', 'upd_date']
+        model = MotorbikeRegisCert
+        fields = ['id', 'province_public_security', 'district_public_security', 'number', 'owner', 'address', 'brand', 'model_code', 'engine', 'chassis', 'color', 'activation_scope', 'plate', 'date_of_expiry', 'upd_date']
 
 
-class Contract_deliverer_serializer(serializers.ModelSerializer):
+class ContractDelivererSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Contract_deliverer
-        fields = ['deliverer_id','full_name', 'code', 'department', 'email', 'telephone', 'upd_date']
+        model = ContractDeliverer
+        fields = ['id','full_name', 'code', 'department', 'email', 'telephone', 'upd_date']
 
 
-class Contract_desc_serializer(serializers.ModelSerializer):
+class ContractDescSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Contract_desc
-        fields = ['deliverer_id', 'contract_number', 'client_name', 'customer_id', 'plate_number', 'other_doc', 'mrc', 'notes']
+        model = ContractDesc
+        fields = ['contract_id', 'contract_number', 'client_name', 'customer_id', 'plate_number', 'other_doc', 'mrc', 'notes']
+
+
+class CustomerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Customer
+        fields = ['id', 'name', 'cert', 'contract_deliverer', 'contract_desc']

@@ -3,21 +3,21 @@ from .serializers import *
 from .models import *
 from rest_framework import routers, serializers, viewsets, generics
 
-class User_viewset(viewsets.ModelViewSet):
+class UserViewset(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    serializer_class = User_serializer
+    serializer_class = UserSerializer
 
 
-class Motorbike_regis_cert_viewset(viewsets.ModelViewSet):
-    queryset = Motorbike_regis_cert.objects.all()
-    serializer_class = Motorbike_regis_cert_serializer
+class MotorbikeRegisCertViewset(viewsets.ModelViewSet):
+    queryset = MotorbikeRegisCert.objects.all()
+    serializer_class = MotorbikeRegisCertSerializer
 
 
-class Contract_deliverer_viewset(viewsets.ModelViewSet):
-    queryset = Contract_deliverer.objects.all()
-    serializer_class = Contract_deliverer_serializer
+class ContractDelivererViewset(viewsets.ModelViewSet):
+    queryset = ContractDeliverer.objects.all()
+    serializer_class = ContractDelivererSerializer
 
 
-class Contract_desc_viewset(viewsets.ModelViewSet):
-    queryset = Contract_desc.objects.all()
-    serializer_class = Contract_desc_serializer
+class ContractDescViewset(viewsets.ModelViewSet):
+    queryset = ContractDesc.objects.all()
+    serializer_class = ContractDescSerializer
