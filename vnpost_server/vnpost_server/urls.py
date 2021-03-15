@@ -27,9 +27,9 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 
-admin.site.site_header = 'Vietnam Post'                    # default: "Django Administration"
-admin.site.index_title = 'Vietnam Post'                 # default: "Site administration"
-admin.site.site_title = 'Vietnam Post' # default: "Django site admin"
+admin.site.site_header = 'Vietnam Post'                   
+admin.site.index_title = 'Vietnam Post'                 
+admin.site.site_title = 'Vietnam Post' 
 
 urlpatterns = [
     path('', include('frontend.urls')),

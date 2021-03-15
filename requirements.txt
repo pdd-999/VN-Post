@@ -11,3 +11,4 @@ unidecode
 requests
 trio
 django_extensions
+PyJWT==1.7.1
