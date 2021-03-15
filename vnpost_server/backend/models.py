@@ -1,5 +1,9 @@
 from django.db import models
+import datetime
+import pytz
+from django.conf import settings
 
+TIMEZONE = pytz.timezone(settings.TIME_ZONE)
 # Create your models here.
 class Motorbike_regis_cert(models.Model):
     cert_id = models.CharField(max_length=10, primary_key=True)
@@ -48,7 +52,7 @@ class Contract_deliverer(models.Model):
 
     def save(self, *args, **kwargs): 
         self.upd_date =  datetime.datetime.now(TIMEZONE)
-        super(Motorbike_regis_cert, self).save(*args, **kwargs)
+        super(Contract_deliverer, self).save(*args, **kwargs)
 
     class Meta:
         indexes = [
@@ -68,6 +72,13 @@ class Contract_desc(models.Model):
     other_doc = models.CharField(max_length=10, blank=True)
     mrc = models.BooleanField()
     notes = models.CharField(max_length=300, blank=True)
+    
+    cre_date = models.DateTimeField(auto_now=True)
+    upd_date = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs): 
+        self.upd_date =  datetime.datetime.now(TIMEZONE)
+        super(Contract_desc, self).save(*args, **kwargs)
 
     class Meta:
         db_table = "Contract_Description"
