@@ -1,0 +1,13 @@
+django==3.1.3
+djangorestframework==3.12.1
+markdown
+django-filter>=2.4.0
+django-jet-reboot>=1.1.1
+djangorestframework-simplejwt
+beautifulsoup4
+django-nonrelated-inlines
+django-currentuser
+unidecode
+requests
+trio
+django_extensions
